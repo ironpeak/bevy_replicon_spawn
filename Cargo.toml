@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = ["src/bevy_replicon_spawn", "src/bevy_replicon_spawn_macros", "tests"]
+members = ["src/bevy_replicon_spawn", "tests"]
 
 [workspace.dependencies]
 bevy_app = { version = "0.14", default-features = false }
