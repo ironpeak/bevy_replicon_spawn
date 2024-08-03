@@ -145,7 +145,7 @@ fn remove_system_param_lifetimes(field: &Type) -> Type {
 }
 
 #[proc_macro_derive(ClientSpawnEvent, attributes(modifier))]
-pub fn derive_server_spawn_event(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
+pub fn derive_client_spawn_event(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let ast = parse_macro_input!(input as DeriveInput);
 
     let attributes = parse_attributes(&ast.attrs);
@@ -285,71 +285,7 @@ pub fn derive_server_spawn_event(input: proc_macro::TokenStream) -> proc_macro::
         }
     });
 
-    let output = quote! {
-        #[derive(Component)]
-        pub struct #component_ty {
-            pub priority: #priority_ty,
-            pub modify: fn(&mut #struct_name, &mut #metadata_ty, &mut #output_ty),
-        }
-
-        impl Ord for #component_ty {
-            fn cmp(&self, other: &Self) -> std::cmp::Ordering {
-                self.priority.cmp(&other.priority)
-            }
-        }
-
-        impl PartialOrd for #component_ty {
-            fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
-                self.priority.partial_cmp(&other.priority)
-            }
-        }
-
-        impl Eq for #component_ty {
-
-        }
-
-        impl PartialEq for #component_ty {
-            fn eq(&self, other: &Self) -> bool {
-                self.priority == other.priority
-            }
-        }
-
-        impl #user_impl_generics #struct_name #user_impl_generics {
-            pub fn system(
-                #(#system_params)*
-                mut p_events_in: EventReader<#input_ty>,
-                p_modifiers: Query<&#component_ty>,
-                mut p_events_out: EventWriter<#output_ty>,
-            ) {
-                let mut context = #struct_name {
-                    #(#system_param_names)*
-                };
-                let modifiers = p_modifiers
-                    .iter()
-                    .sort::<&#component_ty>()
-                    .collect::<Vec<_>>();
-                for event in p_events_in.read() {
-                    let Some(mut event_out) = #output_ty ::init(&mut context, event) else {
-                        continue;
-                    };
-                    let mut metadata = #metadata_ty ::init(&mut context, event);
-                    for modifier in &modifiers {
-                        (modifier.modify)(&mut context, &mut metadata, &mut event_out);
-                    }
-                    p_events_out.send(event_out);
-                }
-            }
-        }
-
-        impl #user_impl_generics bevy_event_modifiers::prelude::EventModifierContext for #struct_name #user_impl_generics {
-            fn register_type(app: &mut App) -> &mut App {
-                app.add_event::<#input_ty>();
-                app.add_event::<#output_ty>();
-                app.add_systems(Update, #struct_name ::system.run_if(on_event::<#input_ty>()));
-                app
-            }
-        }
-    };
+    let output = quote! {};
 
     TokenStream::from(output)
 }
