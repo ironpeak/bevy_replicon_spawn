@@ -1,11 +1,13 @@
 [workspace]
 resolver = "2"
-members = ["src/bevy_replicon_spawn", "tests"]
+members = ["src/bevy_replicon_spawn", "src/bevy_replicon_spawn_macros", "tests"]
 
 [workspace.dependencies]
 bevy_app = { version = "0.14", default-features = false }
 bevy_ecs = { version = "0.14", default-features = false }
 bevy_replicon = "0.27"
+glam = "0.27"
 proc-macro2 = "1"
 quote = "1"
+serde = { version = "1" }
 syn = { version = "2" }
