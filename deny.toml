@@ -1,0 +1,77 @@
+[bans]
+multiple-versions = "deny"
+wildcards = "allow"
+skip = [
+    { name = "accesskit_consumer", version = "0.22.0" },
+    { name = "accesskit_macos", version = "0.15.0" },
+    { name = "accesskit_windows", version = "0.20.0" },
+    { name = "accesskit_winit", version = "0.20.4" },
+    { name = "accesskit", version = "0.14.0" },
+    { name = "android-activity", version = "0.6.0" },
+    { name = "async-channel", version = "2.3.1" },
+    { name = "async-fs", version = "2.1.2" },
+    { name = "async-lock", version = "3.4.0" },
+    { name = "bitflags", version = "2.0" },
+    { name = "block2", version = "0.5.1" },
+    { name = "calloop", version = "0.13.0" },
+    { name = "cfg_aliases", version = "0.2.1" },
+    { name = "event-listener", version = "5.3.1" },
+    { name = "fastrand", version = "2.1.0" },
+    { name = "fixedbitset", version = "0.5.7" },
+    { name = "futures-lite", version = "2.0" },
+    { name = "hermit-abi", version = "0.4.0" },
+    { name = "libloading", version = "0.8.4" },
+    { name = "linux-raw-sys", version = "0.4.14" },
+    { name = "ndk-sys", version = "0.6.0" },
+    { name = "ndk", version = "0.9.0" },
+    { name = "objc-sys", version = "0.3.5" },
+    { name = "objc2-encode", version = "4.0.3" },
+    { name = "objc2", version = "0.5.2" },
+    { name = "polling", version = "3.7.2" },
+    { name = "proc-macro-crate", version = "3.1.0" },
+    { name = "raw-window-handle", version = "0.6.2" },
+    { name = "redox_syscall", version = "0.4.1" },
+    { name = "redox_syscall", version = "0.5.2" },
+    { name = "regex-automata", version = "0.4.7" },
+    { name = "regex-syntax", version = "0.8.4" },
+    { name = "rustix", version = "0.38.34" },
+    { name = "syn", version = "2.0.71" },
+    { name = "toml_edit", version = "0.21.1" },
+    { name = "toml_edit", version = "0.22.15" },
+    { name = "web-time", version = "1.1.0" },
+    { name = "windows_aarch64_gnullvm", version = "0.52.6" },
+    { name = "windows_aarch64_msvc", version = "0.52.6" },
+    { name = "windows_i686_gnu", version = "0.52.6" },
+    { name = "windows_i686_msvc", version = "0.52.6" },
+    { name = "windows_x86_64_gnu", version = "0.52.6" },
+    { name = "windows_x86_64_gnullvm", version = "0.52.6" },
+    { name = "windows_x86_64_msvc", version = "0.52.6" },
+    { name = "windows-core", version = "0.54.0" },
+    { name = "windows-implement", version = "0.53.0" },
+    { name = "windows-interface", version = "0.53.0" },
+    { name = "windows-sys", version = "0.45.0" },
+    { name = "windows-sys", version = "0.52.0" },
+    { name = "windows-targets", version = "0.52.6" },
+    { name = "windows", version = "0.54.0" },
+    { name = "winit", version = "0.30.3" },
+    { name = "winnow", version = "0.6.13" },
+]
+
+[licenses]
+allow = [
+    "Apache-2.0",
+    "Apache-2.0 WITH LLVM-exception",
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    "CC0-1.0",
+    "ISC",
+    "MIT",
+    "MIT-0",
+    "Unicode-DFS-2016",
+    "Zlib",
+]
+exceptions = []
+
+[sources]
+unknown-registry = "deny"
+unknown-git = "deny"
