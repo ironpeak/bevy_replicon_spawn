@@ -14,4 +14,4 @@ categories = ["game-development"]
 bevy_app = { workspace = true }
 bevy_ecs = { workspace = true }
 bevy_replicon = { workspace = true }
-bevy_replicon_spawn_macros = { path = "../bevy_replicon_spawn_macros" }
+bevy_event_modifiers_macros = { version = "0.1.0" }
