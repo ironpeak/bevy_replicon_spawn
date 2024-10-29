@@ -3,10 +3,10 @@ resolver = "2"
 members = ["src/bevy_replicon_spawn", "src/bevy_replicon_spawn_macros", "tests"]
 
 [workspace.dependencies]
-bevy_app = { version = "0.14", default-features = false }
-bevy_ecs = { version = "0.14", default-features = false }
-bevy_replicon = "0.28"
-glam = "0.27"
+bevy_app = { version = "0.15.0-rc.2", default-features = false }
+bevy_ecs = { version = "0.15.0-rc.2", default-features = false }
+bevy_replicon = { git = "https://github.com/ironpeak/bevy_replicon.git", branch = "master" }
+glam = "0.29"
 proc-macro2 = "1"
 quote = "1"
 serde = { version = "1" }
